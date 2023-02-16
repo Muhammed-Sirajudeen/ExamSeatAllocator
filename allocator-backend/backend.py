@@ -14,7 +14,7 @@ class DatabaseConnection():
 		Initiated a class for reusing database connection and to work with multiple databases in future
 	'''
 	def __init__(self,dbname,collection) -> None:
-		self.url="mongodb+srv://siraj:strongpassword@cluster0.wnzkkfw.mongodb.net/seatdb?retryWrites=true&w=majority"
+		self.url=""
 		self.dbname=dbname
 		self.collection=collection
 
