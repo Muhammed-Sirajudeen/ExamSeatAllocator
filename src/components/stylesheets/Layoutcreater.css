@@ -7,7 +7,8 @@
     background-color: blueviolet;
     color: white;
     border-style: hidden;
-    border-radius: 10px;
+    border-radius: 5px;
+    margin-top: 2%;
 }
 .bench-container{
     display: flex;
@@ -33,5 +34,5 @@
     margin-top: 2vh;
 }
 .input{
-    margin-top: 15%;
+    margin-top: 2%;
 }
