@@ -3,6 +3,9 @@ from flask_restful import Resource, Api
 from flask_cors import CORS
 import pymongo
 import pandas as pd
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 api = Api(app)
@@ -13,7 +16,7 @@ class DatabaseConnection():
 		Initiated a class for reusing database connection and to work with multiple databases in future
 	'''
 	def __init__(self,dbname,collection) -> None:
-		self.url=""
+		self.url=os.getenv('MONGODB_URL')
 		self.dbname=dbname
 		self.collection=collection
 
