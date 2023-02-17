@@ -6,25 +6,14 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 load_dotenv()
-
+from database import DatabaseConnection
+from sorterHelper import sorter
 app = Flask(__name__)
 api = Api(app)
 CORS(app)
 
-class DatabaseConnection():
-	'''
-		Initiated a class for reusing database connection and to work with multiple databases in future
-	'''
-	def __init__(self,dbname,collection) -> None:
-		self.url=os.getenv('MONGODB_URL')
-		self.dbname=dbname
-		self.collection=collection
+DF=pd.read_csv("./studentlist.csv")
 
-	def connection(self) -> object:
-		myclient = pymongo.MongoClient(self.url)
-		mydb = myclient[self.dbname]
-		mycol=mydb[self.collection]
-		return mycol
 
 try:
 	DBCONNECTION=DatabaseConnection("seatdb","layouts")
@@ -72,8 +61,14 @@ class ExamSorter(Resource):
 
 	def post(self):
 		data = request.get_json()
+		subject_codes=[data["subjectcode"]]
+		print(subject_codes)
+		
+		
 
-		return {"status":"200OK","error":None}
+		mydoc = DBCOLLECTION.find()
+		array=sorter()
+		return {"status":"200OK","error":None,"data":array}
 
 api.add_resource(LayoutPost, '/')
 api.add_resource(ExamSorter,'/sort')
