@@ -8,6 +8,7 @@ def sorter():
     this has the complex logic of sorting the data although the algorithm is O(n^3) it still returns the data
     in a meaningul time window if it exceeds ten seconds or more then we can make changes to the implementation and
     include pandas to sort some of the nested json
+    request the endpoint /sort to recieve this data
     '''
     CODES=[3041,3042,3043]
     DATA=[]
