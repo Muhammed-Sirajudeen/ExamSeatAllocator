@@ -1,0 +1,21 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.class-button{
+    width: 30%;
+    height: 30px;
+    border-style: hidden;
+    margin: 3%;
+    background-color: blueviolet;
+    color: white;
+    font-size: larger;
+
+}
+.heading{
+    margin: 5%;
+    font-size: xx-large;
+    font-weight: 900;
+    
+}

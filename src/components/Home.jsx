@@ -52,7 +52,7 @@ function Home() {
     setsubjectElements(codes)
   }
 
-  function retrieveHandler(){
+  async function retrieveHandler(){
 
     let classnumbers=[]
     selectNumber.forEach((data)=>{  
@@ -61,6 +61,19 @@ function Home() {
     })
     console.log(classnumbers) //do not confuse with the state variable classnumbers
     console.log(subjectElements) //we have the data here now we just have to post the data to the backend and we are good to go
+    let response= await axios.post("http://localhost:5000/sort",{
+      subjectcode:subjectElements,
+      classnumbers:classnumbers
+    })
+    console.log(response.data.data)
+    if(response.data.error){
+      alert(response.data.error)
+     
+    }
+    else{
+      alert("sorting performed successfully")
+      window.location="/viewclasses"
+    }
   }
 
   return (

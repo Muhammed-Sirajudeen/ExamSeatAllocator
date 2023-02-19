@@ -1,0 +1,32 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.layout-container-view{
+    display: flex;
+    background-color: black;
+    min-height: 100%;
+    min-width: 100%;
+    margin-top: 5%;
+}
+.seat-container-view{
+    display: flex;
+    margin: 5%;
+    flex-direction: column;
+}
+.seats-view{
+    margin: 10%;
+    height: 70px;
+    width: 80px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.seat-heading{
+    font-weight: 900;
+}
+.seat-reg{
+    margin-top: 10%;
+}

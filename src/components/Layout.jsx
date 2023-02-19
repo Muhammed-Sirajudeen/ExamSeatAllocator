@@ -6,6 +6,7 @@ function Layout() {
 
         <Link to="/">Home</Link>
         <Link to="/layout">Layout</Link>
+        <Link to="/viewclasses">Sorted Layout</Link>
 
     </div>
   )
