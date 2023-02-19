@@ -8,7 +8,7 @@ def sorter(doc,CODES):
     include pandas to sort some of the nested json
     request the endpoint /sort to recieve this data
     '''
-    CODES=[3041,3042,3043]
+    
     DATA=[]
     flag=0
     datapointer={}
