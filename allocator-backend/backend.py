@@ -18,7 +18,7 @@ DF=pd.read_csv("./studentlist.csv")
 try:
 	DBCONNECTION=DatabaseConnection("seatdb")
 	DBCONNECTION.connection()
-	DBCONNECTION.collection("layouts")
+	
 	print("connection to the database is success")
 except:
 	print("connection to the database failed")
