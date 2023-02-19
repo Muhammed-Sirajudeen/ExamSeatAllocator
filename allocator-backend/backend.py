@@ -88,7 +88,7 @@ class ExamSorter(Resource):
 			'''
 			using the or operator in mongodb to find the data
 			'''
-
+			DBCONNECTION.collection("layouts")
 			mydoc = DBCONNECTION.mycol.find({"$or":query})
 			querydata=[]
 			for x in mydoc:
