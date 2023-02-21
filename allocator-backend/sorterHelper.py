@@ -1,6 +1,7 @@
 import pandas as pd
 from database import DatabaseConnection
 #expects a function that takes the database collection and some subject codes and returns the data in the sortd manner
+
 def sorter(doc,CODES):
     '''
     this has the complex logic of sorting the data although the algorithm is O(n^3) it still returns the data
@@ -8,7 +9,13 @@ def sorter(doc,CODES):
     include pandas to sort some of the nested json
     request the endpoint /sort to recieve this data
     '''
-    
+    df=pd.read_csv("./studentlist.csv")
+    for codes in CODES:
+        child_df=pd.DataFrame()
+        for i in range(1,14):
+            data=df.loc[df['Sub'+str(i)]==int(codes)]
+            child_df=pd.concat([child_df,data])
+        child_df.to_csv("./"+str(codes)+".csv")
     DATA=[]
     flag=0
     datapointer={}

@@ -77,30 +77,30 @@ class ExamSorter(Resource):
 		# 	return {"status":"503","error":"internal network error"}	
 
 	def post(self):
-		try:
-			data = request.get_json()
-			subject_codes=data["subjectcode"]
-			classnumbers=data["classnumbers"]
-			query=[]
-			for number in classnumbers:
-				query.append({"classnumber":number})
-			print(query)
-			'''
-			using the or operator in mongodb to find the data
-			'''
-			DBCONNECTION.collection("layouts")
-			mydoc = DBCONNECTION.mycol.find({"$or":query})
-			querydata=[]
-			for x in mydoc:
-				querydata.append(x)
-			
-			array=sorter(querydata,subject_codes)
-			DBCONNECTION.collection("sortedlayouts")
-			DBCONNECTION.mycol.drop()
-			x = DBCONNECTION.mycol.insert_one({"sortedData":array})
-			return {"status":"200OK","error":None}
-		except:
-			return	{"status":"503","error":"internal network error"}
+		# try:
+		data = request.get_json()
+		subject_codes=data["subjectcode"]
+		classnumbers=data["classnumbers"]
+		query=[]
+		for number in classnumbers:
+			query.append({"classnumber":number})
+		print(query)
+		'''
+		using the or operator in mongodb to find the data
+		'''
+		DBCONNECTION.collection("layouts")
+		mydoc = DBCONNECTION.mycol.find({"$or":query})
+		querydata=[]
+		for x in mydoc:
+			querydata.append(x)
+		
+		array=sorter(querydata,subject_codes)
+		DBCONNECTION.collection("sortedlayouts")
+		DBCONNECTION.mycol.drop()
+		x = DBCONNECTION.mycol.insert_one({"sortedData":array})
+		return {"status":"200OK","error":None}
+		# except:
+			# return	{"status":"503","error":"internal network error"}
 		
 
 
